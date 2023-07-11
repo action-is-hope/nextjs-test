@@ -1,0 +1,11 @@
+@st-import Default from "@actionishope/shelley/styles/default/project.st.css";
+@st-import Text from "@actionishope/shelley/Text/text.st.css";
+
+/* Remove the comment below to see the error: */
+/* @st-import ProgressCircle from "@actionishope/shelley/ProgressCircle/progressCircle.st.css"; */
+
+@st-scope Default {
+  Text {
+    color: aqua;
+  }
+}
