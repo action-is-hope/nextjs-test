@@ -40,8 +40,9 @@ module.exports = {
         cssInjection: "css",
 
         /* attach CSS to every chunk containing a Stylable stylesheet,
-                   instead of to entry chunks 
+                   instead of to entry chunks
                 */
+        unsafeMuteDiagnostics: { DUPLICATE_MODULE_NAMESPACE: "warn" },
         experimentalAttachCssToContainingChunks: true,
       })
     );
