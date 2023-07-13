@@ -1,3 +1,7 @@
+This is a test repo testing the App router and Shelley. We are seeing the the [`duplicate namespace error`](https://github.com/wix/stylable/issues/2028) issue in a NextJS contet when using components (3rd party lib) that have the "use client" directive applied.
+
+See `app/about/Page.tsx` for instructions on how to repro. Also `theme.st.css`.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
