@@ -1,0 +1,66 @@
+@st-import Default, [breakpoint-md-max, breakpoint-sm-max] from "@actionishope/shelley/styles/default/project.st.css";
+
+
+.header {
+  position: fixed;
+  right: 0;
+}
+
+.main {
+  box-sizing: border-box;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 256px;
+  margin-right: 180px;
+  display: flex;
+  padding: 40px 52px 0;
+}
+
+@media value(breakpoint-md-max) {
+  .main {
+    margin-top: 48px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 40px 24px;
+  }
+}
+
+.article {
+  max-width: 967px;
+  width: 100%;
+  flex: 1;
+  padding-bottom: 40px;
+}
+
+
+.nav {
+  width: 256px;
+  background: var(--spectrum-global-color-gray-100);
+  box-sizing: border-box;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+@media value(breakpoint-md-max) {
+  .nav {
+    -st-states: isVisible;
+    z-index: 100;
+    visibility: hidden;
+    outline: 0;
+    transition: transform .2s, visibility 0s .2s;
+    position: fixed;
+    inset: 0 100% 0 auto;
+  }
+
+  .nav:isVisible {
+    visibility: unset;
+    transition-delay: 0s;
+    transform: translate(100%);
+
+  }
+}

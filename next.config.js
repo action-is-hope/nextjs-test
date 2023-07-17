@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+// next.config.js
+const { withContentlayer } = require("next-contentlayer");
 
 const {
   StylableWebpackPlugin,
@@ -13,9 +14,11 @@ const {
 const StylableOptimizer = require("@stylable/optimizer").StylableOptimizer;
 const stylableOptimizer = new StylableOptimizer();
 
-module.exports = {
-  transpilePackages: ["@actionishope/shelley"],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
+  transpilePackages: ["@actionishope/shelley"],
   webpack: (config, { isServer }) => {
     /* exclude Stylable files from all other loaders */
     applyWebpackConfigStylableExcludes(config);
@@ -59,3 +62,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = withContentlayer(nextConfig);

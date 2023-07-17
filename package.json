@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "contentlayer dev & next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -15,11 +15,19 @@
     "@types/node": "20.2.3",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
+    "contentlayer": "0.3.1",
+    "date-fns": "^2.30.0",
+    "dedent": "^1.0.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
-    "next": "13.4.9",
+    "next": "13.4.10",
+    "next-contentlayer": "0.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.7"
   }
 }
