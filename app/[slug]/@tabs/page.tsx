@@ -1,10 +1,12 @@
-export default function Page() {
-  return (
-    <ul className="list">
-      <li>Answering “What ARIA can I use?”</li>
-      <li>Privacy Principles for the Web</li>
-      <li>Stepping forward on WAI management</li>
-      <li>W3C Accessibility Maturity Model</li>
-    </ul>
+import { allComponents } from "contentlayer/generated";
+import { MDXContent } from "../../../components/MDXContent";
+
+export default function Page(props: { params: { slug: string } }) {
+  const { params } = props;
+  const component = allComponents.find(
+    (component) => component._raw.sourceFileName.split(".")[0] === params.slug
   );
+  if (!component) throw new Error(`Post not found for slug: ${params.slug}`);
+
+  return <MDXContent content={component?.body.code} />;
 }

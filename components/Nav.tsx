@@ -10,7 +10,7 @@ interface NavProps {
 export function Nav(props: NavProps) {
   const buttons = allComponents.filter((comp) => comp.category === "Buttons");
   const content = allComponents.filter((comp) => comp.category === "Content");
-
+  console.log(buttons);
   return (
     <div className={props?.className}>
       <Link href="/">Getting started</Link>

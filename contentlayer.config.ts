@@ -20,9 +20,30 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+// export const Component = defineDocumentType(() => ({
+//   name: "Component",
+//   filePathPattern: `components/**/*.mdx`,
+//   contentType: "mdx",
+//   fields: {
+//     title: { type: "string", required: true },
+//     description: { type: "markdown" },
+//     category: { type: "string", required: true },
+//     date: { type: "date", required: true },
+//     thumbnail: { type: "string" },
+//     prerequisites: { type: "list", of: { type: "string" } },
+//   },
+//   computedFields: {
+//     url: {
+//       type: "string",
+//       // resolve: (post) => `${post._raw.flattenedPath}`,
+//       resolve: (post) => post._raw.sourceFileName.split(".")[0],
+//     },
+//   },
+// }));
+
 export const Component = defineDocumentType(() => ({
   name: "Component",
-  filePathPattern: `components/**/*.mdx`,
+  filePathPattern: `components/**/!(props|styling).mdx`,
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
@@ -41,7 +62,24 @@ export const Component = defineDocumentType(() => ({
   },
 }));
 
+export const ComponentDetails = defineDocumentType(() => ({
+  name: "ComponentDetails",
+  filePathPattern: `components/**/(props|styling).mdx`,
+  contentType: "mdx",
+  fields: {
+    component: { type: "string", required: true },
+    category: { type: "string", required: true },
+  },
+  // computedFields: {
+  //   url: {
+  //     type: "string",
+  //     // resolve: (post) => `${post._raw.flattenedPath}`,
+  //     resolve: (post) => post._raw.sourceFileName.split(".")[0],
+  //   },
+  // },
+}));
+
 export default makeSource({
   contentDirPath: "_content",
-  documentTypes: [Post, Component],
+  documentTypes: [Post, Component, ComponentDetails],
 });

@@ -1,7 +1,8 @@
-// "use client";
+"use client";
 import { Text, H2 } from "@actionishope/shelley/Text";
 import { ProgressCircle } from "@actionishope/shelley/ProgressCircle";
 import dedent from "dedent";
+import { allComponents } from "contentlayer/generated";
 
 import Code from "../../components/Code";
 
@@ -28,6 +29,7 @@ export default function About(): JSX.Element {
     }
   }
 `;
+  console.log(allComponents);
   return (
     <>
       <div>
