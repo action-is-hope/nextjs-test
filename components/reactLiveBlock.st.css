@@ -1,0 +1,19 @@
+.codeBlock {
+  padding: 10px;
+  /* font-family: Menlo, monospace; */
+  font-family: Menlo, monospace;
+  background-color: black;
+  border-radius: 8px;
+  margin-top: 40px
+}
+
+.codeBlock pre {
+  background-color: transparent !important;
+}
+
+.preview {
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid grey;
+  margin: 40px 0;
+}

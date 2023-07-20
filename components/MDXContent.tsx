@@ -1,3 +1,4 @@
+"use client";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { H1, H2, H3, H4, H5, H6, P, Text } from "@actionishope/shelley/Text";
@@ -6,6 +7,7 @@ import type { MDXComponents } from "mdx/types";
 import Code from "./Code";
 import { ReactElement, ReactNode } from "react";
 import { Volume } from "@actionishope/shelley";
+import ReactLiveBlock from "./ReactLiveBlock";
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
 // React component you want, including components from
@@ -43,10 +45,15 @@ export function MDXContent(props: MDXComponentProps) {
     h6: ({ children }) => <H6 {...kebabId(children)}>{children}</H6>,
     ul: ({ children }) => <Text as="ul">{children}</Text>,
     p: ({ children }) => <P vol={vol?.p}>{children}</P>,
+    // pre: ({ children }) => {
+    //   const { children: childrenString, className } = (children as ReactElement)
+    //     ?.props;
+    //   return <Code language={className.split("-")[1]}>{childrenString}</Code>;
+    // },
     pre: ({ children }) => {
       const { children: childrenString, className } = (children as ReactElement)
         ?.props;
-      return <Code language={className.split("-")[1]}>{childrenString}</Code>;
+      return <ReactLiveBlock editable rawCode={childrenString} />;
     },
     // Add a custom component.
     MyComponent: ({ children }) => <div>{children}</div>,
