@@ -21,12 +21,12 @@ function Component(component: Component) {
       >
         {format(parseISO(component.date), "LLLL d, yyyy")}
       </time>
-      {component?.description && (
+      {/* {component?.description && (
         <div
           className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0"
           dangerouslySetInnerHTML={{ __html: component.description?.html }}
         />
-      )}
+      )} */}
       <MDXContent content={component.body.code} />
     </div>
   );

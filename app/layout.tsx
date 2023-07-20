@@ -1,5 +1,5 @@
-import "./globals.css";
-import { Inter } from "next/font/google";
+// import "./globals.css";
+// import { Inter } from "next/font/google";
 import themes from "@actionishope/shelley/styles";
 import { Toolbar } from "@actionishope/shelley/Toolbar";
 import { Button } from "@actionishope/shelley/Button";
@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ElementType } from "react";
 import { Nav } from "../components/Nav";
 import { st, classes } from "../theme/main.st.css";
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html className={themes.shelley}>
-      <body className={inter.className}>
+      <body>
         <Toolbar className={classes.header}>
           <Button as={Link as ElementType} href="/button">
             Button

@@ -1,27 +1,48 @@
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { H1, H2, P, Text } from "@actionishope/shelley/Text";
+
+import { H1, H2, H3, H4, H5, H6, P, Text } from "@actionishope/shelley/Text";
 import Link from "next/link";
 import type { MDXComponents } from "mdx/types";
 import Code from "./Code";
-import { ReactElement } from "react";
+import { ReactElement, ReactNode } from "react";
+import { Volume } from "@actionishope/shelley";
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
 // React component you want, including components from
 // other libraries.
 interface MDXComponentProps {
   content: string;
+  vol?: { [key: string]: Volume };
 }
 
 export function MDXContent(props: MDXComponentProps) {
-  const MDX = useMDXComponent(props.content);
+  const {
+    content,
+    vol = {
+      p: 2,
+    },
+  } = props;
+  const toKebabCase = (str: string): string =>
+    str.toLowerCase().replace(/\s+/g, "-");
+  const kebabId = (children: ReactNode) => {
+    return typeof children === "string"
+      ? { id: toKebabCase(children) }
+      : undefined;
+  };
+
+  const MDX = useMDXComponent(content);
   // Define your custom MDX components.
   const mdxComponents: MDXComponents = {
     // Override the default <a> element to use the next/link component.
     a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
-    h1: ({ children }) => <H1>{children}</H1>,
-    h2: ({ children }) => <H2>{children}</H2>,
+    h1: ({ children }) => <H1 {...kebabId(children)}>{children}</H1>,
+    h2: ({ children }) => <H2 {...kebabId(children)}>{children}</H2>,
+    h3: ({ children }) => <H3 {...kebabId(children)}>{children}</H3>,
+    h4: ({ children }) => <H4 {...kebabId(children)}>{children}</H4>,
+    h5: ({ children }) => <H5 {...kebabId(children)}>{children}</H5>,
+    h6: ({ children }) => <H6 {...kebabId(children)}>{children}</H6>,
     ul: ({ children }) => <Text as="ul">{children}</Text>,
-    p: ({ children }) => <P>{children}</P>,
+    p: ({ children }) => <P vol={vol?.p}>{children}</P>,
     pre: ({ children }) => {
       const { children: childrenString, className } = (children as ReactElement)
         ?.props;

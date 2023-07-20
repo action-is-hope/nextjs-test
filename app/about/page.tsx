@@ -29,7 +29,7 @@ export default function About(): JSX.Element {
     }
   }
 `;
-  console.log(allComponents);
+
   return (
     <>
       <div>

@@ -8,7 +8,7 @@ export const Post = defineDocumentType(() => ({
     title: { type: "string", required: true },
     thumbnail: { type: "string" },
     date: { type: "date", required: true },
-    description: { type: "markdown" },
+    description: { type: "string" },
     prerequisites: { type: "list", of: { type: "string" } },
     stacks: { type: "list", of: { type: "string" } },
   },
@@ -47,7 +47,7 @@ export const Component = defineDocumentType(() => ({
   contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
-    description: { type: "markdown" },
+    description: { type: "mdx" },
     category: { type: "string", required: true },
     date: { type: "date", required: true },
     thumbnail: { type: "string" },
