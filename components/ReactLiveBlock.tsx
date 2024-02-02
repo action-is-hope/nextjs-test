@@ -77,7 +77,7 @@ function ReactLiveBlock({ editable, rawCode, ...rest }: ReactLiveProps) {
       {editable && (
         // <CodeContainer padding='5'>
         <Text as="div" vol={1} className={classes.codeBlock}>
-          <LiveEditor onChange={onChange} tabMode="focus" />
+          <LiveEditor onChange={onChange} />
         </Text>
         // </CodeContainer>
       )}

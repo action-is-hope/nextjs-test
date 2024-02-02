@@ -11,8 +11,8 @@
   "dependencies": {
     "@actionishope/shelley": "^4.0.4",
     "@codesandbox/sandpack-react": "^2.6.9",
-    "@stylable/core": "^5.12.0",
-    "@stylable/webpack-plugin": "^5.12.0",
+    "@stylable/core": "^5.15.1",
+    "@stylable/webpack-plugin": "^5.15.1",
     "@types/node": "20.2.3",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",

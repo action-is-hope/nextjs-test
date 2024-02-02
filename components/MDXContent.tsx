@@ -53,7 +53,14 @@ export function MDXContent(props: MDXComponentProps) {
     pre: ({ children }) => {
       const { children: childrenString, className } = (children as ReactElement)
         ?.props;
-      return <ReactLiveBlock editable rawCode={childrenString} />;
+      // console.log("PROPS", children.props);
+      console.log(className, typeof className);
+      return (
+        <ReactLiveBlock
+          editable={className && className?.includes("live:false")}
+          rawCode={childrenString}
+        />
+      );
     },
     // Add a custom component.
     MyComponent: ({ children }) => <div>{children}</div>,
